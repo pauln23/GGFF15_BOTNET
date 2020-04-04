@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>GGFF15 Dashboard and Searchbar</title>
+    <link rel="stylesheet" href="../static/css/site.css"/>
+</head>
+<body>
+
+<img src="../static/img/ggff15logo.png" alt="Logo" class="avatar">
+
+
+<div class="topnav">
+    <a class="active" href="#dashboard">Dashboard</a>
+    <a href="sendcommands.html">Send Commands</a>
+    <a href="recievedcommands.html">Received Commands</a>
+    <a href="login.html">Logout</a>
+</div>
+
+<table align="center" class="container">
+    <thead>
+    <tr>
+        <th><h1>ID</h1></th>
+        <th><h1>Hostname</h1></th>
+        <th><h1>IP Address</h1></th>
+        <th><h1>Operating System</h1></th>
+        <th><h1>Status</h1></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for client in database %}
+        <tr>
+            <td>{{ client.idNum }}</td>
+            <td>{{ client.hostname }}</td>
+            <td>{{ client.IP }}</td>
+            <td>{{ client.OS }}</td>
+            <td>Status</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

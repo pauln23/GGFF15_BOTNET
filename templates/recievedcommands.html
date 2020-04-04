@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>GGFF15 Dashboard and Searchbar</title>
+    <link rel="stylesheet" href="../static/css/site.css"/>
+</head>
+<body>
+
+<img src="../static/img/ggff15logo.png" alt="Logo" class="avatar">
+<div class="topnav">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="sendcommands.html">Send Commands</a>
+    <a class=active href="#recievedcommands">Received Commands</a>
+    <a href="login.html">Logout</a>
+</div>
+
+<table align="center" class="container">
+    <thead>
+    <tr>
+        <th><h1>ID</h1></th>
+        <th><h1>Hostname</h1></th>
+        <th><h1>Command Sent</h1></th>
+        <th><h1>Output</h1></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for task in taskDb %}
+        <tr>
+            <td>{{ task.idNum }}</td>
+            <td>{{ task.hostname }}</td>
+            <td>{{ task.commandSent }}</td>
+            <td>
+                {% if '/receivedData/screenshots' in task.output %}
+                    <img width="300" height="200" src="{{ task.output }}">
+                {% elif '/receivedData/keylogs' in task.output %}
+                    <a style="color:whitesmoke" href={{ task.output }}>Click here for keylog file</a>
+                {% else %}
+                    <pre>{{ task.output }}</pre>
+                {% endif %}
+
+            </td>
+        </tr>
+    {% endfor %}
+
+
+    </tbody>
+</table>
+
+</body>
+</html>

